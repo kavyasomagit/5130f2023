@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Portfolios</title>
+    
+    <!-- Add Chart.js and Bootstrap CSS via CDNs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .portfolio {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .investment {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Add some styling for the chart */
+        .chart-container {
+            max-width: 400px;
+        }
+
+        .section {
+            display: inline-block;
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio">
+        <h1>Investment Portfolios</h1>
+
+        <div class="section">
+            <h2>My Portfolio</h2>
+            <p>Welcome to my investment portfolio. Here are some of my investment details:</p>
+            
+            <ul>
+                <li class="investment">
+                    <strong>Company Name:</strong> XYZ Inc.
+                    <p><strong>Stock Symbol:</strong> XYZ</p>
+                    <p><strong>Shares Held:</strong> 100</p>
+                    <p><strong>Investment Value:</strong> $10,000</p>
+                </li>
+
+                <li class="investment">
+                    <strong>Company Name:</strong> ABC Corp.
+                    <p><strong>Stock Symbol:</strong> ABC</p>
+                    <p><strong>Shares Held:</strong> 50</p>
+                    <p><strong>Investment Value:</strong> $5,000</p>
+                </li>
+            </ul>
+            
+            <div class="chart-container">
+                <canvas id="myInvestmentChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>My Family's Portfolio</h2>
+            <p>Here are some of my family's investment details:</p>
+            
+            <ul>
+                <li class="investment">
+                    <strong>Company Name:</strong> Family Co.
+                    <p><strong>Stock Symbol:</strong> FAM</p>
+                    <p><strong>Shares Held:</strong> 200</p>
+                    <p><strong>Investment Value:</strong> $20,000</p>
+                </li>
+
+                <li class="investment">
+                    <strong>Company Name:</strong> Sibling Ltd.
+                    <p><strong>Stock Symbol:</strong> SIB</p>
+                    <p><strong>Shares Held:</strong> 75</p>
+                    <p><strong>Investment Value:</strong> $7,500</p>
+                </li>
+            </ul>
+            
+            <div class="chart-container">
+                <canvas id="familyInvestmentChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:history.back()" class="btn btn-primary mt-3">Back</a>
+
+    <script>
+        // My Investment Data
+        var myInvestmentData = {
+            labels: ['XYZ Inc.', 'ABC Corp.'],
+            datasets: [{
+                data: [10000, 5000],
+                backgroundColor: ['#007BFF', '#28A745'],
+            }],
+        };
+
+        // Family Investment Data
+        var familyInvestmentData = {
+            labels: ['Family Co.', 'Sibling Ltd.'],
+            datasets: [{
+                data: [20000, 7500],
+                backgroundColor: ['#FFC107', '#DC3545'],
+            }],
+        };
+
+        // Create My Investment Pie Chart
+        var myInvestmentChart = new Chart(document.getElementById('myInvestmentChart').getContext('2d'), {
+            type: 'pie',
+            data: myInvestmentData,
+        });
+
+        // Create Family Investment Pie Chart
+        var familyInvestmentChart = new Chart(document.getElementById('familyInvestmentChart').getContext('2d'), {
+            type: 'pie',
+            data: familyInvestmentData,
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facts About Me</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Facts About Me</h2>
+        <form action="javascript:void(0);" method="post" onsubmit="submitForm()">
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hobbiesInterests">Hobbies and Interests:</label>
+                <input type="text" class="form-control" id="hobbiesInterests" name="hobbiesInterests">
+            </div>
+            <div class="form-group">
+                <label for="education">Educational Background:</label>
+                <textarea class="form-control" id="education" name="education" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="employment">Employment History:</label>
+                <textarea class="form-control" id="employment" name="employment" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="languagesSpoken">Languages Spoken:</label>
+                <input type="text" class="form-control" id="languagesSpoken" name="languagesSpoken">
+            </div>
+            <div class="form-group">
+                <label for="skillsQualifications">Skills and Qualifications:</label>
+                <textarea class="form-control" id="skillsQualifications" name="skillsQualifications" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contactInformation">Contact Information:</label>
+                <textarea class="form-control" id="contactInformation" name="contactInformation" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="achievements">Personal Achievements:</label>
+                <textarea class="form-control" id="achievements" name="achievements" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="personalGoals">Personal Goals:</label>
+                <textarea class="form-control" id="personalGoals" name="personalGoals" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="favorites">Favorite Books/Movies/Artists:</label>
+                <input type="text" class="form-control" id="favorites" name="favorites">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="javascript:history.back()" class="btn btn-primary mt-3" >Back</a>
+
+        </form>
+        <p id="thanksMessage" style="display: none; color: green;">Thanks for submitting the details!</p>
+    </div>
+    
+    <script>
+        function submitForm() {
+            document.getElementById("thanksMessage").style.display = "block";
+            document.getElementById("dateOfBirth").value = "";
+            document.getElementById("gender").value = "Male";
+            document.getElementById("hobbiesInterests").value = "";
+            document.getElementById("education").value = "";
+            document.getElementById("employment").value = "";
+            document.getElementById("languagesSpoken").value = "";
+            document.getElementById("skillsQualifications").value = "";
+            document.getElementById("contactInformation").value = "";
+            document.getElementById("achievements").value = "";
+            document.getElementById("personalGoals").value = "";
+            document.getElementById("favorites").value = "";
+        }
+    </script>
+</body>
+</html>

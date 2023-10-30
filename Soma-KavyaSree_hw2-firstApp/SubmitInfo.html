@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form input[type="file"] {
+            display: block;
+            margin: 5px 0;
+        }
+
+        form textarea {
+            resize: none;
+        }
+
+        form input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-back {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="mailto:mail2kavyas@gmail.com" method="post" enctype="text/plain">
+        <label>Your Name:</label>
+        <input type="text" name="YourName" value=""><br>
+        <br>
+        <label>Your Current Location:</label>
+        <input type="text" name="Location" value=""><br>
+        <br>
+        <label>Your Email:</label>
+        <input type="email" name="YourEmail" value=""><br> <br>
+        <label>Your Message:</label>
+        <textarea name="YourMessage" rows="10" cols="20"></textarea> <br><br>
+
+        <label for="ImageUpload">Upload an Image:</label>
+        <input type="file" id="ImageUpload" name="ImageUpload" accept="image/*"><br><br>
+
+        <label for="PDFUpload">Upload a PDF File:</label>
+        <input type="file" id="PDFUpload" name="PDFUpload" accept=".pdf"><br><br>
+        
+        <input type="submit" name="">
+    </form>
+    <a href="javascript:history.back()" class="btn btn-primary mt-3">Back</a>
+</body>
+</html>
