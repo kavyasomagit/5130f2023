@@ -63,30 +63,40 @@
         .btn-back {
             margin-top: 20px;
         }
+
+        .alert{
+            background-color: rgb(144, 229, 144);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 900;
+            display: none;
+        }
     </style>
 </head>
 <body>
     
-    <form action="mailto:mail2kavyas@gmail.com" method="post" enctype="text/plain">
+    <form action="" id = "contactForm" >
+
+        <div class="alert">Your details are stored in the data base</div>
+
         <label>Your Name:</label>
-        <input type="text" name="YourName" value=""><br>
+        <input type="text" name="YourName" value="" id="name"><br>
         <br>
         <label>Your Current Location:</label>
-        <input type="text" name="Location" value=""><br>
+        <input type="text" name="Location" value="" id="location"><br>
         <br>
         <label>Your Email:</label>
-        <input type="email" name="YourEmail" value=""><br> <br>
+        <input type="email" name="YourEmail" value="" id="emailid"><br> <br>
         <label>Your Message:</label>
-        <textarea name="YourMessage" rows="10" cols="20"></textarea> <br><br>
-
-        <label for="ImageUpload">Upload an Image:</label>
-        <input type="file" id="ImageUpload" name="ImageUpload" accept="image/*"><br><br>
-
-        <label for="PDFUpload">Upload a PDF File:</label>
-        <input type="file" id="PDFUpload" name="PDFUpload" accept=".pdf"><br><br>
+        <textarea name="YourMessage" rows="10" cols="20" id="msgContent"></textarea> <br><br>
         
-        <input type="submit" name="">
+        <button type="submit" name="">Submit</button>
     </form>
     <a href="javascript:history.back()" class="btn btn-primary mt-3">Back</a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="mail.js"></script>
 </body>
 </html>
