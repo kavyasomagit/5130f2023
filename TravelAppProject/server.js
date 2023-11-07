@@ -19,7 +19,7 @@ connectDB();
 const PORT = 3500;
 
 app.get("/", (req,res) => {
-    res.send("Hello")
+    res.send("Hello"+" "+ "Hotels API created https://real-goat-stole.cyclic.app/api/hotels" + " "+ "Categories API Created https://real-goat-stole.cyclic.app/api/category"+ " "+"Fetch the Single Hotel Data using API https://real-goat-stole.cyclic.app/api/hotels/6546b3b21eed0aa6d33ed241" +" "+"Wishlist API created https://real-goat-stole.cyclic.app/api/wishlist")
 })
 
 app.use("/api/hoteldata", hotelDataAddedtoTheDataImportRoute);
