@@ -1,3 +1,15 @@
+11-06-2023 
+
+I am proud of creating the routers and API this week. As I am very new to expressJS. I am very happy that I got great hands-on experience working with ExpressJS and mongoDB.
+
+Providing link to the routes folder where i have worked:
+
+github Link: https://github.com/kavyasomagit/5130f2023/tree/main/TravelAppProject/routes
+CS Server Link: https://cs.uml.edu/~ksoma/5130f2023/TravelAppProject/routes/
+
+
+
+
 Project Name : Travel App - Your Ultimate Travel Companion!
 
 Overview:-
