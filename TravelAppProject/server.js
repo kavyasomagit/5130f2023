@@ -1,0 +1,38 @@
+const express = require('express');
+const mongoose = require('mongoose');
+
+const hotelRouter = require("./routes/hotel.router");
+const categoryRouter = require("./routes/category.router");
+const hotelDataAddedtoTheDataImportRoute = require("./routes/dataimport.router");
+const categoryDataAddedtoTheDataImportRoute = require("./routes/categoryimport.router");
+const singleHotelData = require("./routes/singlehotel.route");
+const authRouter = require('./routes/auth.router');
+const wishlistRouter = require('./routes/wishlist.router');
+
+const connectDB = require("./config/dbconfig");
+
+const app = express();
+
+app.use(express.json());
+connectDB();
+
+const PORT = 3500;
+
+app.get("/", (req,res) => {
+    res.send("Hello")
+})
+
+app.use("/api/hoteldata", hotelDataAddedtoTheDataImportRoute);
+app.use("/api/hotels", hotelRouter);
+app.use("/api/category",categoryRouter);
+app.use("/api/categorydata",categoryDataAddedtoTheDataImportRoute);
+app.use("/api/hotels", singleHotelData);
+app.use("/api/auth", authRouter);
+app.use("/api/wishlist", wishlistRouter);
+
+mongoose.connection.once("open", ()=> {
+    console.log("connected to the Data Base");
+    app.listen(process.env.PORT || PORT, () => {
+        console.log("Server is Up and running");
+    })
+})

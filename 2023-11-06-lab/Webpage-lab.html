@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    form {
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form id="validationForm">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+    <div class="error-message" id="emailError"></div>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" required>
+    <div class="error-message" id="phoneError"></div>
+
+    <label for="webpage">Webpage:</label>
+    <input type="text" id="webpage" name="webpage" required>
+    <div class="error-message" id="webpageError"></div>
+  </br>
+    <button type="submit">Submit</button>
+    <button type="reset" value="Cancel">Cancel</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('validationForm');
+
+    form.addEventListener('submit', function(event) {
+      const emailInput = document.getElementById('email');
+      const phoneInput = document.getElementById('phone');
+      const webpageInput = document.getElementById('webpage');
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+      const webpageError = document.getElementById('webpageError');
+
+      // Regular expressions for email, phone, and webpage validation
+      const emailRegex = /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const phoneRegex = /^(\(\d{3}\)|\d{3})[-. ]?\d{3}[-. ]?\d{4}$/;
+      const webpageRegex = /^(https?:\/\/)?([A-Za-z0-9-]+\.)+[A-Za-z]{2,6}([A-Za-z0-9/?=&%#-_.]*)?$/;
+
+      emailError.innerText = '';
+      phoneError.innerText = '';
+      webpageError.innerText = '';
+
+      let valid = true;
+
+      if (!emailRegex.test(emailInput.value)) {
+        emailError.innerText = 'Invalid email address';
+        valid = false;
+      }
+
+      if (!phoneRegex.test(phoneInput.value)) {
+        phoneError.innerText = 'Invalid phone number';
+        valid = false;
+      }
+
+      if (!webpageRegex.test(webpageInput.value)) {
+        webpageError.innerText = 'Invalid webpage address';
+        valid = false;
+      }
+
+      if (!valid) {
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
