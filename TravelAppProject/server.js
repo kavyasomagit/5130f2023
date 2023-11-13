@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const hotelRouter = require("./routes/hotel.router");
 const categoryRouter = require("./routes/category.router");
@@ -12,6 +13,8 @@ const wishlistRouter = require('./routes/wishlist.router');
 const connectDB = require("./config/dbconfig");
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 connectDB();
