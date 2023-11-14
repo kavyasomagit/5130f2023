@@ -61,20 +61,19 @@
 
         let valid = true;
 
-      if (!emailRegex.test(emailInput.value)) {
-        emailError.innerText = 'Invalid email address';
-        valid = false;
-      }
-
-      if (!valid) {
-        event.preventDefault();
-      }
 
         let EmailInp = document.getElementById('emailInp');
         let PassInp = document.getElementById('PasswordInp');
         let FnameInp = document.getElementById('fnameInp');
         let LnameInp = document.getElementById('lnameInp');
         let MainForm = document.getElementById('MainForm');
+
+
+      if (!emailRegex.test(EmailInp.value)) {
+        emailError.innerText = 'Invalid email address';
+        valid = false;
+      }
+
 
         let RegisterUser = evt => {
             evt.preventDefault();
