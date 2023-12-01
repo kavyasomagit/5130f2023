@@ -1,0 +1,9 @@
+{
+    "name": "Lab",
+    "short_name": "Lab",
+    "description": "Lab Firebase login User and basic information",
+    "start_url": "/login.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000"
+}
