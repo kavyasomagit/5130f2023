@@ -1,6 +1,17 @@
 import './FinalPrice.css'
+import { useDate } from "../../context";
+import { DateSelector } from "../DateSelector/DateSelector";
 
 export const FinalPrice = ({singleHotel}) => {
+
+    const handleGuestChange = (event) => { 
+        dateDispatch({
+          type: "GUESTS",
+          payload: event.target.value,
+        });
+      };
+
+      const { guests, dateDispatch, checkInDate, checkOutDate } = useDate();
     const {price, rating} = singleHotel;
 
     console.log(price, rating, singleHotel);
@@ -16,15 +27,27 @@ export const FinalPrice = ({singleHotel}) => {
        <div>
          <div className='grid-container-two-col selected-dates'>
             <div className='checkin loc-container'>
-                <label>Check In</label>
+                <label className="label">Check In</label>
+                <DateSelector checkInType="in" />
             </div>
             <div className='checkin loc-container'>
-                <label>Check Out</label>
+                <label className="label">Check Out</label>
+                <DateSelector checkInType="out" />
             </div>
          </div>
          <div className='guests gutter-sm'>
             <p>GUESTS</p>
-            <span>2 guests</span>
+            {guests <= 0 ? (
+            <input
+              className="guest-count-input"
+              type="number"
+              placeholder="Add Guests"
+              value={guests}
+              onChange={handleGuestChange}
+            />
+          ) : (
+            <span>{guests} guests</span>
+          )}
          </div>
        </div>
        <div>
