@@ -1,8 +1,11 @@
 import './FinalPrice.css'
 import { useDate } from "../../context";
 import { DateSelector } from "../DateSelector/DateSelector";
+import { useNavigate } from 'react-router-dom';
 
 export const FinalPrice = ({singleHotel}) => {
+
+  const naviagate = useNavigate();
 
     const handleGuestChange = (event) => { 
         dateDispatch({
@@ -12,9 +15,13 @@ export const FinalPrice = ({singleHotel}) => {
       };
 
       const { guests, dateDispatch, checkInDate, checkOutDate } = useDate();
-    const {price, rating} = singleHotel;
+    const {_id, price, rating} = singleHotel;
 
     console.log(price, rating, singleHotel);
+
+    const handleReserveClick = () => {
+      naviagate(`/confirm-booking/stay/${_id}`);
+    }
 
     return (
     <div className="price-details-container d-flex direction-column gap shadow">
@@ -51,7 +58,9 @@ export const FinalPrice = ({singleHotel}) => {
          </div>
        </div>
        <div>
-        <button className="button btn-reserve btn-primary cursor">
+        <button className="button btn-reserve btn-primary cursor" onClick={handleReserveClick}
+        disabled = {checkInDate && checkOutDate && guests >0 ? false : true }
+        >
             Reserve
         </button>
        </div>

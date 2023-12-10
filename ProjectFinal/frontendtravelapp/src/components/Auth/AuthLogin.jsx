@@ -60,6 +60,29 @@ export const AuthLogin = () => {
     
   };
 
+  const handleTestCredentialsClick = async (e) => {
+    const { accessToken, username } = await loginHandler(
+      9876543220,
+      "Abc@1234",
+    );
+    console.log(accessToken);
+    console.log(username);
+    authDispatch({
+      type: "SET_ACCESS_TOKEN",
+      payload: accessToken,
+    });
+    authDispatch({
+      type: "SET_USER_NAME",
+      payload: username,
+    });
+    authDispatch({
+      type: "CLEAR_USER_DATA",
+    });
+    authDispatch({
+      type: "SHOW_AUTH_MODAL",
+    });
+  };
+
 
 
     return (
@@ -99,7 +122,7 @@ export const AuthLogin = () => {
         <div className="cta">
           <button
             className="button btn-outline-primary cursor-pointer"
-            // onClick={handleTestCredentialsClick}
+            onClick={handleTestCredentialsClick}
           >
             Login with Test Credentials
           </button>

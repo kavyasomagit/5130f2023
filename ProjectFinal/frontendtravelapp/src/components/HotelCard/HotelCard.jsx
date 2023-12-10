@@ -37,8 +37,6 @@ export const HotelCard = ({hotel}) => {
               type: "SHOW_AUTH_MODAL",
             });
           }
-       
-        
     }
 
     return (
