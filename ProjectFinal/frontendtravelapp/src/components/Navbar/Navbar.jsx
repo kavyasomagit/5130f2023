@@ -1,11 +1,17 @@
 import './Navbar.css';
-import { useDate } from '../../context';
+import { useDate, useAuth } from '../../context';
 
 export const Navbar = () => {
     const { destination, dateDispatch, checkInDate, checkOutDate, guests } =
     useDate();
 
+    const {authDispatch} = useAuth();
 
+    const handleAuthClick = () => {
+        authDispatch({
+            type: "SHOW_AUTH_MODAL",
+        });
+    };
 
     const handleSearchClick = () => {
         dateDispatch({
@@ -34,7 +40,7 @@ export const Navbar = () => {
                         <span className='form-option'>{guests > 0 ? `${guests} guests` : "Add Guests"}</span>
                         <span className="search material-icons-outlined">manage_search</span>
                 </div>
-            <nav className="d-flex align center gap-large" >
+            <nav className="d-flex align center gap-large" onClick={handleAuthClick}>
                 <div className="nav d-flex align-center cursor-pointer">
                 <span className="material-icons-outlined profile-option menu">list</span>
                 <span className="material-icons-outlined profile-option person">person</span>

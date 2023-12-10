@@ -4,7 +4,7 @@ import "./Home.css"
 import axios from "axios"
 import { useEffect, useState, Fragment } from "react"
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useCategory, useDate, useFilter } from "../../context"
+import { useCategory, useDate, useFilter, useAuth } from "../../context"
 
 import {getHotelsByPrice, getHotelsByRoomsAndBeds, getHotelsByPropertyType, getHotelsByRatings, getHotelsByCancelation} from "../../utils";
 
@@ -28,6 +28,7 @@ export const Home = () => {
         isCancelable,
       } = useFilter();
 
+      const {isAuthModalOpen} = useAuth();
 
     useEffect(() => {
         (async  () => {
@@ -84,7 +85,9 @@ export const Home = () => {
 
     return (
         <div className="relative">
+            
         <Navbar/>
+        {isAuthModalOpen && <AuthModal/>}
         <Categories/>
        
             {
@@ -109,7 +112,10 @@ export const Home = () => {
             {
                  isSearchModalOpen && <SearchStayWithDate />
             }
+            
              {isFilterModalOpen && <Filter />}
+
+             
         </div>
         
     )
