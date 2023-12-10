@@ -39,7 +39,7 @@ export const AuthLogin = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (isNumberValid && isPasswordValid) {
-      const { accessToken, username } = loginHandler(number, password);
+      const { accessToken, username } = await loginHandler(number, password);
       console.log(accessToken);
     console.log(username);
     authDispatch({
