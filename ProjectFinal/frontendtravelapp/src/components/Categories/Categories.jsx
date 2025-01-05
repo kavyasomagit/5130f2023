@@ -26,7 +26,7 @@ export const Categories = () => {
     useEffect(() => {
         (async() => {
             try {
-                const {data} = await axios.get("https://real-goat-stole.cyclic.app/api/category");
+                const {data} = await axios.get("https://travel-app-project-backend.vercel.app/api/category");
                 console.log(data)
                 const categoriesToShow = data.slice(
                     numberOfCategoryToShow +10 > data.length ? data.length-10 : numberOfCategoryToShow, 

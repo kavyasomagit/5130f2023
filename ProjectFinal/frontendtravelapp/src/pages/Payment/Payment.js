@@ -14,7 +14,7 @@ export const Payment = () => {
 useEffect (() => {
     (async () => {
         try {
-            const {data} = await axios.get(`https://real-goat-stole.cyclic.app/api/hotels/${id}`)
+            const {data} = await axios.get(`https://travel-app-project-backend.vercel.app/api/hotels/${id}`)
             console.log(data)
             setSingleHotel(data)
         } catch (error) {
